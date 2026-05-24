@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  .light .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  }
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ── LIGHT MODE ─────────────────────────────────────────────────── */
+/* Cool silver-gray palette — like modern fintech / DeFi apps */
+:root.light {
+  --color-bg-primary: #edeef2;
+  --color-bg-card: #e4e5ea;
+  --color-bg-surface: #d8d9e0;
+  --color-text-primary: #111827;
+  --color-text-muted: #6b7280;
+}
+
+:root.light body {
+  background-color: #edeef2;
+  color: #111827;
+}
+
+:root.light ::-webkit-scrollbar-track { background: #e4e5ea; }
+:root.light ::-webkit-scrollbar-thumb { background: #b0b3be; }
+
+/* Backgrounds */
+:root.light .bg-black\/40,
+:root.light .bg-black\/60  { background-color: rgba(228,229,234,0.92) !important; }
+:root.light .bg-black\/95  { background-color: rgba(237,238,242,0.98) !important; }
+:root.light .bg-\[\#050505\],
+:root.light .bg-\[\#0a0a0a\] { background-color: #e4e5ea !important; }
+:root.light .bg-\[\#041a10\],
+:root.light .bg-\[\#061f14\] { background-color: #d2f0e2 !important; }
+:root.light .bg-white\/5   { background-color: rgba(0,0,0,0.04) !important; }
+:root.light .bg-white\/\[0\.03\] { background-color: rgba(0,0,0,0.03) !important; }
+:root.light .bg-white\/\[0\.06\] { background-color: rgba(0,0,0,0.05) !important; }
+:root.light .bg-white\/10  { background-color: rgba(0,0,0,0.06) !important; }
+:root.light .bg-bg-card    { background-color: #e4e5ea !important; }
+:root.light .bg-bg-surface { background-color: #d8d9e0 !important; }
+:root.light .bg-bg-primary { background-color: #edeef2 !important; }
+
+/* Borders */
+:root.light .border-white\/5  { border-color: rgba(0,0,0,0.07) !important; }
+:root.light .border-white\/10 { border-color: rgba(0,0,0,0.09) !important; }
+:root.light .border-white\/20 { border-color: rgba(0,0,0,0.12) !important; }
+:root.light .border-border    { border-color: rgba(0,0,0,0.09) !important; }
+
+/* Text */
+:root.light .text-white       { color: #111827 !important; }
+:root.light .text-white\/90   { color: #1f2937 !important; }
+:root.light .text-white\/80   { color: #374151 !important; }
+:root.light .text-white\/70   { color: #4b5563 !important; }
+:root.light .text-white\/60   { color: #6b7280 !important; }
+:root.light .text-white\/50   { color: #9ca3af !important; }
+:root.light .text-white\/40   { color: #6b7280 !important; }
+:root.light .text-white\/30   { color: #9ca3af !important; }
+:root.light .text-white\/20   { color: #d1d5db !important; }
+:root.light .text-white\/15   { color: #e5e7eb !important; }
+:root.light .text-gray-400    { color: #6b7280 !important; }
+:root.light .text-gray-300    { color: #4b5563 !important; }
+:root.light .text-text-muted  { color: #6b7280 !important; }
+:root.light .text-text-primary { color: #111827 !important; }
+
+/* Navbar */
+:root.light nav { background-color: rgba(232,233,238,0.88) !important; border-color: rgba(0,0,0,0.1) !important; }
+
+/* Soften glows */
+:root.light .shadow-2xl { box-shadow: 0 4px 24px rgba(0,0,0,0.07) !important; }
+
+/* ── Blog & Galerie: dark overlays → light in light mode ────────── */
+
+/* Blog section bg */
+:root.light .bg-\[\#051c11\] { background-color: #eaf7f0 !important; }
+
+/* Blog NewsCard dark bg → light card */
+:root.light .bg-\[\#0f1f14\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0,200,83,0.2) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+
+/* Gallery image dark overlay → light frosted overlay */
+:root.light .absolute.inset-0.bg-black\/40.group-hover\:bg-transparent {
+  background-color: rgba(255,255,255,0.35) !important;
+}
+
+/* Gallery image — remove grayscale in light mode so they show full color */
+:root.light .group .grayscale { filter: none !important; }
+:root.light .group:hover .grayscale-0 { filter: none !important; }
+
+/* Gallery card border */
+:root.light .border-white\/10.shadow-2xl {
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+}
+
+/* Blog section dark bg band */
+:root.light .w-full.bg-\[\#051c11\] { background-color: #eaf7f0 !important; }
+
+/* Text inside blog cards: white → dark */
+:root.light .bg-\[\#0f1f14\] .text-white { color: #111827 !important; }
+:root.light .bg-\[\#0f1f14\] button.text-white { color: #374151 !important; }
+
+/* ── Gallery: side-fade gradient → light bg color ───────────────── */
+/* The gradient uses from-bg-primary/to-bg-primary which resolves to black in dark mode.
+   In light mode we override the CSS variable so the gradient fades to the light bg. */
+:root.light .from-bg-primary {
+  --tw-gradient-from: #edeef2 !important;
+  --tw-gradient-stops: var(--tw-gradient-from), transparent !important;
+}
+:root.light .to-bg-primary {
+  --tw-gradient-to: #edeef2 !important;
+}
+
+/* ── Visa Cards & Dark-green elements → light green in light mode ── */
+/* Dark green gradient card backgrounds */
+:root.light .from-green-950\/40,
+:root.light .from-green-900\/40 { --tw-gradient-from: rgba(187,247,208,0.6) !important; }
+:root.light .from-\[\#061f14\]  { --tw-gradient-from: #d2f5e3 !important; }
+
+/* The main featured visa card dark bg */
+:root.light .bg-gradient-to-br.from-\[\#061f14\] {
+  background: linear-gradient(135deg, #c6f0d8, #e8f9f0) !important;
+  border-color: rgba(0, 200, 83, 0.35) !important;
+  box-shadow: 0 20px 50px rgba(0, 200, 83, 0.15) !important;
+}
+
+/* Black gradient → green gradient in light mode */
+:root.light .bg-gradient-to-br.from-\[\#0a0a0a\] {
+  background: linear-gradient(135deg, #d8f5e8, #c2eedb) !important;
+}
+:root.light .bg-gradient-to-br.from-green-950\/40 {
+  background: linear-gradient(135deg, rgba(187,247,208,0.5), rgba(220,252,231,0.3)) !important;
+}
+:root.light .bg-gradient-to-br.from-green-900\/40 {
+  background: linear-gradient(135deg, rgba(167,243,208,0.5), rgba(209,250,229,0.3)) !important;
+}
+
+/* Radial glow inside main card */
+:root.light .bg-\[radial-gradient\(circle_at_50\%_0\%\,rgba\(34\,197\,94\,0\.3\)\,transparent\)\] {
+  background: radial-gradient(circle at 50% 0%, rgba(0,200,83,0.15), transparent) !important;
+}
+
+/* Black/40 inside cards → very light green tint */
+:root.light .bg-black\/40 { background-color: rgba(210,245,228,0.85) !important; }
+
+/* Expert banner → light mint gradient */
+:root.light .bg-gradient-to-br.from-\[\#0a0a0a\].to-\[\#041a10\] {
+  background: linear-gradient(135deg, #e0f7ec, #c8f0de) !important;
+  border-color: rgba(0,200,83,0.3) !important;
+}
+
+/* Floating action icons in hero → light green tint */
+:root.light .bg-white\/5.backdrop-blur-md {
+  background-color: rgba(0, 200, 83, 0.08) !important;
+  border-color: rgba(0, 200, 83, 0.2) !important;
+}
+
+img {
+  filter: grayscale(1) brightness(0.7) sepia(1) hue-rotate(55deg) saturate(20) brightness(1.5) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  filter: grayscale(1) brightness(0.7) sepia(1) hue-rotate(55deg) saturate(30) brightness(1.8) contrast(1.2);
+}
+
+/* Custom scrollbar for better look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {          
+  background: #222222;           
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00C853;
+}
+
